@@ -1,42 +1,306 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap');
+
+* {
+  padding: 0rem;
+  margin: 0rem;
+  box-sizing: border-box;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+:root {
+  /* ### Primary */
+
+  --Scissors-Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --Paper-Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --Rock-Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --Lizard-Gradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+  --Spock-Gradient: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
+
+  /* ### Neutral */
+
+  --Dark-Text: hsl(229, 25%, 31%);
+  --Score-Text: hsl(229, 64%, 46%);
+  --Header-Outline: hsl(217, 16%, 45%);
+
+  /* ### Background */
+
+  --Radial-Gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 0.8rem;
+}
+
+p {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+body {
+  background-image: radial-gradient(var(--Radial-Gradient));
+}
+
+.app {
+  /* height: 100vh; */
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.score-header {
+  padding: 0.8rem;
+  border: 2px solid var(--Header-Outline);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.options-list {
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.options-list p {
+  line-height: 0.9;
+  font-size: 0.8em;
+  font-weight: 600;
 }
 
-.card {
-  padding: 2em;
+.score {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.3rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.score p {
+  letter-spacing: 0.05em;
+  color: var(--Score-Text);
+}
+
+.score h1 {
+  color: var(--Dark-Text);
+  font-size: 2.8rem;
+  line-height: 0.8;
+}
+
+/* .main-game-area {
+} */
+
+.moves {
+  max-width: 20rem;
+  height: 20rem;
+  position: relative;
+  margin: 6rem auto 8rem;
+}
+
+.pentagon {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1rem solid rgba(0, 0, 0, 0.315);
+}
+
+.move-container {
+  position: absolute;
+}
+
+.move {
+  padding: 0.7rem;
+  /* background-image: linear-gradient(var(--Scissors-Gradient)); */
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-content: center;
+}
+
+.inner-circle {
+  background-color: #eee;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.164),
+    inset -1px 3px 5px rgba(0, 0, 0, 0.164);
+}
+
+.move .inner-circle img {
+  width: 2.3rem;
+}
+
+.hard-shadow-effect {
+  background-color: hsla(39, 93%, 37%, 0.76);
+  width: 6.1rem;
+  height: 6rem;
+  border-radius: 50%;
+  transform: translate(0.1rem, -5.75rem);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.205);
+  position: absolute;
+}
+
+.move-container.scissors {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scissors .move {
+  background-image: linear-gradient(var(--Scissors-Gradient));
+}
+
+.move-container.paper {
+  position: absolute;
+  top: 43%;
+  right: 0;
+  transform: translate(0, -50%);
+}
+
+.paper .move {
+  background-image: linear-gradient(var(--Paper-Gradient));
+}
+
+.paper .hard-shadow-effect {
+  background-color: hsla(230, 89%, 62%, 0.589);
+}
+
+.move-container.rock {
+  bottom: 0;
+  right: 29%;
+  transform: translateX(50%);
+}
+
+.rock .move {
+  background-image: linear-gradient(var(--Rock-Gradient));
+}
+
+.rock .hard-shadow-effect {
+  background-color: hsla(349, 71%, 52%, 0.589);
+}
+
+.move-container.lizard {
+  bottom: 0;
+  left: 29%;
+  transform: translateX(-50%);
+}
+
+.lizard .move {
+  background-image: linear-gradient(var(--Lizard-Gradient));
+}
+
+.lizard .hard-shadow-effect {
+  background-color: hsl(261, 73%, 60%, 0.689);
+}
+
+.move-container.spock {
+  position: absolute;
+  top: 43%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+
+.spock .move {
+  background-image: linear-gradient(var(--Spock-Gradient));
+}
+
+.spock .hard-shadow-effect {
+  background-color: hsl(189, 59%, 53%, 0.589);
+}
+
+.rules-btn {
+  background-color: transparent;
+  border: 1px solid #eee;
+  font-size: 1.2em;
+  padding: 0.7rem 3rem;
+  border-radius: 0.7rem;
+  color: #eee;
+  letter-spacing: 3px;
+  margin: auto;
+  display: block;
+}
+
+.rules {
+  background-color: #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+}
+
+.close-btn {
+  /* width: 4rem; */
+  /* background: #000; */
+  margin: 0 auto;
+  display: block;
+}
+
+.game-logic-container {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.challengers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.challenge-move.move-container.rock,
+.challenge-move.move-container.spock,
+.challenge-move.move-container.scissors,
+.challenge-move.move-container.lizard,
+.challenge-move.move-container.paper {
+  position: relative;
+  inset: 0 0 0 0;
+  transform: none;
+}
+
+.challenge-move .move {
+  width: 8rem;
+  height: 8rem;
+}
+
+.challenge-move .inner-circle {
+  width: 6rem;
+  height: 6rem;
+}
+
+.challenge-move .hard-shadow-effect {
+   width: 7.5rem;
+  height: 6.8rem;
+  transform: translate(0.2rem, -6.5rem);
+}
+
+.player {
+  padding: 0rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.player h2 {
+  font-size: 0.9rem;
+  color: #eee;
+  letter-spacing: 1.5px;
+  font-weight: 500;
 }
