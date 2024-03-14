@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 import ScoreHeader from './components/ScoreHeader';
 import MainGameArea from './components/MainGameArea';
+import GameLogic from './components/GameLogic';
 
 function App() {
-  const [score, setScore] = useState(0); 
-
+  const [score, setScore] = useState(12);
+  const [userMove, setUserMove] = useState('');
+  // useEffect(() => {
+  //   console.log(userMove);
+  // }, [userMove]);
   return (
     <div className='app'>
       <ScoreHeader score={score} />
-      <MainGameArea />
+      {!userMove ? <MainGameArea setUserMove={setUserMove} /> : <GameLogic userMove={userMove}/>}
     </div>
   );
 }
