@@ -1,42 +1,88 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap');
+
+* {
+  padding: 0rem;
+  margin: 0rem;
+  box-sizing: border-box;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+  /* ### Primary */
+
+  --Scissors-Gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --Paper-Gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --Rock-Gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --Lizard-Gradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+  --Cyan: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
+
+  /* ### Neutral */
+
+  --Dark-Text: hsl(229, 25%, 31%);
+  --Score-Text: hsl(229, 64%, 46%);
+  --Header-Outline: hsl(217, 16%, 45%);
+
+  /* ### Background */
+
+  --Radial-Gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+
+  font-size: 16px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  font-size: 0.8rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+p {
+  font-size: 0.8em;
+  font-weight: 600;
 }
 
-.card {
-  padding: 2em;
+.app {
+  background-image: radial-gradient(var(--Radial-Gradient));
+  height: 100vh;
+  padding: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
+.score-header {
+  padding: 0.8rem;
+  border: 2px solid var(--Header-Outline);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options-list {
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+}
+
+.options-list p {
+  font-size: 0.8em;
+  font-weight: 600;
+  margin: -0.15em;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score p {
+  letter-spacing: 0.05em;
+  color: var(--Score-Text);
+}
+
+.score h1 {
+  color: var(--Dark-Text);
+  font-size: 2.8rem;
+  margin: -0.3rem;
 }
