@@ -1,7 +1,6 @@
-const Move = ({ img, name, setUserMove }) => {
-  console.log(name)
+const Move = ({ img, name, setPlayerMove }) => {
   return (
-    <div className={`move-container ${name}`} onClick={()=> setUserMove(name)}>
+    <div className={`move-container ${name}`} onClick={() => setPlayerMove(name)}>
       <div className='move'>
         <div className='inner-circle'>
           <img src={img} alt={name} />

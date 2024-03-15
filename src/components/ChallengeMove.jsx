@@ -1,7 +1,4 @@
-import imgg from '../assets/images/icon-spock.svg'
-
 const ChallengeMove = ({ img, name }) => {
-    console.log(img,name)
   return (
     <div className={`challenge-move move-container ${name}`}>
       <div className='move'>

@@ -44,6 +44,12 @@ body {
 .app {
   /* height: 100vh; */
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+
+  min-height: 100vh;
 }
 
 .score-header {
@@ -91,25 +97,15 @@ body {
   line-height: 0.8;
 }
 
-/* .main-game-area {
-} */
-
 .moves {
-  max-width: 20rem;
+  max-width: 25rem;
   height: 20rem;
   position: relative;
-  margin: 6rem auto 8rem;
-}
-
-.pentagon {
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 1rem solid rgba(0, 0, 0, 0.315);
+  margin: 0 auto;
+  background-image: url(./assets/images/bg-pentagon.svg);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
 }
 
 .move-container {
@@ -118,7 +114,6 @@ body {
 
 .move {
   padding: 0.7rem;
-  /* background-image: linear-gradient(var(--Scissors-Gradient)); */
   width: 6.4rem;
   height: 6.4rem;
   border-radius: 50%;
@@ -229,7 +224,7 @@ body {
   border-radius: 0.7rem;
   color: #eee;
   letter-spacing: 3px;
-  margin: auto;
+  margin: 0 auto;
   display: block;
 }
 
@@ -244,24 +239,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 8rem;
 }
 
 .close-btn {
-  /* width: 4rem; */
-  /* background: #000; */
   margin: 0 auto;
   display: block;
 }
 
 .game-logic-container {
-  padding: 4rem 0;
   position: relative;
 }
 
 .challengers {
   display: flex;
   justify-content: space-between;
+  height: 24rem;
+  position: relative;
 }
 
 .challenge-move.move-container.rock,
@@ -272,6 +266,7 @@ body {
   position: relative;
   inset: 0 0 0 0;
   transform: none;
+  margin: 0;
 }
 
 .challenge-move .move {
@@ -285,7 +280,7 @@ body {
 }
 
 .challenge-move .hard-shadow-effect {
-   width: 7.5rem;
+  width: 7.5rem;
   height: 6.8rem;
   transform: translate(0.2rem, -6.5rem);
 }
@@ -299,8 +294,76 @@ body {
 }
 
 .player h2 {
-  font-size: 0.9rem;
+  font-size: 1em;
   color: #eee;
   letter-spacing: 1.5px;
   font-weight: 500;
+}
+
+.result-play-again {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.result-play-again h1 {
+  font-size: 3.8em;
+  color: #eee;
+  margin-bottom: 1.3rem;
+}
+
+.result-play-again button {
+  background-color: #eee;
+  color: var(--Dark-Text);
+  font-size: 1.3em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 1rem 4rem;
+}
+
+.the-house-placeholder {
+  height: 7.9rem;
+  width: 7.9rem;
+  border-radius: 50%;
+  background-color: #eee;
+  position: relative;
+}
+
+.the-house-placeholder div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  animation-name: the-house-placeholder;
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@keyframes the-house-placeholder {
+  0% {
+    background-image: url(./assets//images/icon-rock.svg);
+  }
+  20% {
+    background-image: url(./assets//images/icon-paper.svg);
+  }
+  40% {
+    background-image: url(./assets//images/icon-scissors.svg);
+  }
+  60% {
+    background-image: url(./assets//images/icon-lizard.svg);
+  }
+  80% {
+    background-image: url(./assets//images/icon-spock.svg);
+  }
 }
