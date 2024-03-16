@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import movesArr from '../arrays/movesArr';
 import ChallengeMove from './ChallengeMove';
@@ -13,18 +13,21 @@ const GameLogic = ({ playerMove, setPlayerMove, setScore }) => {
     handleDominance();
   }, [theHouseMove]);
 
+  // delay complayer move to alloy the shuffle animation in placeholder div take place
   useEffect(() => {
-    const suspense = setTimeout(() => {
+    const comPlayerDelay = setTimeout(() => {
       handleRandomHouseMove();
     }, 2000);
-    return () => clearTimeout(suspense);
+    return () => clearTimeout(comPlayerDelay);
   }, [playerMove]);
 
+  // get complayers move randomly
   function handleRandomHouseMove() {
     const randomIndex = Math.floor(Math.random() * movesArr.length);
     setTheHouseMove(movesArr[randomIndex]);
   }
 
+  // main game logic: determine if its a win by checking if the player move dominates the computers move
   function handleDominance() {
     if (theHouseMove) {
       if (
@@ -47,16 +50,21 @@ const GameLogic = ({ playerMove, setPlayerMove, setScore }) => {
       <div className='game-logic-container'>
         <div className='challengers'>
           <div className='player'>
+            {/* show player move */}
             <ChallengeMove
               img={playerGameMove[0].img}
               name={playerGameMove[0].name}
             />
             <h2>YOU PICKED</h2>
           </div>
-          { gameResult && <div className='result-play-again'>
-            <h1>{gameResult.toUpperCase()}</h1>
-            <button onClick={() => setPlayerMove('')}>PLAY AGAIN</button>
-          </div>}
+          {gameResult && (
+            <div className='result-play-again'>
+              <h1>{gameResult.toUpperCase()}</h1>
+              <button onClick={() => setPlayerMove('')}>PLAY AGAIN</button>
+            </div>
+          )}
+
+          {/* show computers game move after delay (placeholder div) */}
           <div className='com-player player'>
             {theHouseMove ? (
               <ChallengeMove img={theHouseMove.img} name={theHouseMove.name} />
