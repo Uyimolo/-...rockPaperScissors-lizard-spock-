@@ -9,6 +9,7 @@ const MoveSelection = ({ setPlayerMove }) => {
   return (
     <div className='main-game-area'>
       <div className='moves'>
+        {/*tip:position each move absolutely */}
         <div className='pentagon'></div>
         {movesArr.map((move) => (
           <Move

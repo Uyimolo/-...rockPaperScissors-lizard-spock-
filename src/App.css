@@ -77,6 +77,10 @@ body {
   font-weight: 600;
 }
 
+.reset-icon {
+  width: 2rem;
+}
+
 .score {
   display: flex;
   flex-direction: column;

@@ -1,5 +1,6 @@
 const ChallengeMove = ({ img, name }) => {
   return (
+  
     <div className={`challenge-move move-container ${name}`}>
       {/* used this div to simulate a hard shadow */}
       <div className='hard-shadow-effect'></div>
