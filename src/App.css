@@ -51,6 +51,16 @@ body {
   min-height: 100vh;
 }
 
+button {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+    box-shadow: 0px 10px 5px #00000075;
+  
+}
+
 .score-header {
   padding: 0.8rem;
   border: 2px solid var(--Header-Outline);
@@ -79,6 +89,7 @@ body {
 
 .reset-icon {
   width: 2rem;
+  cursor: pointer;
 }
 
 .score {
@@ -116,6 +127,12 @@ body {
 
 .move-container {
   position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.move-container:hover .inner-circle img {
+  rotate: 360deg;
 }
 
 .move {
@@ -141,6 +158,7 @@ body {
 
 .move .inner-circle img {
   width: 2.3rem;
+  transition: 1s;
 }
 
 .hard-shadow-effect {
@@ -255,6 +273,7 @@ body {
 .close-btn {
   margin: 0 auto;
   display: block;
+  cursor: pointer;
 }
 
 .game-logic-container {
