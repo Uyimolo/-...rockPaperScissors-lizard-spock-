@@ -53,10 +53,10 @@ const GameLogic = ({ playerMove, setPlayerMove, setScore }) => {
             />
             <h2>YOU PICKED</h2>
           </div>
-          <div className='result-play-again'>
+          { gameResult && <div className='result-play-again'>
             <h1>{gameResult.toUpperCase()}</h1>
             <button onClick={() => setPlayerMove('')}>PLAY AGAIN</button>
-          </div>
+          </div>}
           <div className='com-player player'>
             {theHouseMove ? (
               <ChallengeMove img={theHouseMove.img} name={theHouseMove.name} />
