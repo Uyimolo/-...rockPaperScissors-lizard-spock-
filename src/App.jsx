@@ -13,6 +13,7 @@ function App() {
   return (
     <div className='app'>
       <ScoreHeader score={score} />
+
       {!playerMove ? (
         <MainGameArea setPlayerMove={setPlayerMove} />
       ) : (
@@ -22,6 +23,7 @@ function App() {
           setPlayerMove={setPlayerMove}
         />
       )}
+
       <button
         onClick={() => setShowRules((prevState) => !prevState)}
         className='rules-btn'>
